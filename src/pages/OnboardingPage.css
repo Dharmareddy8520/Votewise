@@ -1,0 +1,43 @@
+.onboarding-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.onboarding-card {
+  max-width: 500px;
+  width: 100%;
+}
+
+.onboarding-card h2 {
+  text-align: center;
+}
+
+.onboarding-card p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+}
+
+.onboarding-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--navy);
+}
+
+.submit-btn {
+  margin-top: 1rem;
+}

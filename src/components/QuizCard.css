@@ -1,0 +1,71 @@
+.quiz-card {
+  margin-bottom: 1.5rem;
+}
+
+.quiz-question {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.option-btn {
+  text-align: left;
+  background-color: var(--surface-1);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 12px 16px;
+  font-size: 1rem;
+}
+
+.option-btn:hover:not(:disabled) {
+  background-color: var(--surface-hover);
+}
+
+.option-btn.selected {
+  border-color: var(--saffron);
+  background-color: rgba(255, 107, 53, 0.1);
+}
+
+.option-btn.correct {
+  background-color: rgba(40, 167, 69, 0.1);
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.option-btn.wrong {
+  background-color: rgba(215, 58, 74, 0.1);
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.submit-btn {
+  width: 100%;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.feedback {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.feedback-success {
+  background-color: rgba(40, 167, 69, 0.1);
+  border-left: 4px solid var(--success);
+}
+
+.feedback-error {
+  background-color: rgba(215, 58, 74, 0.1);
+  border-left: 4px solid var(--error);
+}

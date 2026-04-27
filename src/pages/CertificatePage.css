@@ -1,0 +1,118 @@
+.certificate-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: calc(100vh - 100px);
+  background: var(--surface-1);
+}
+
+.certificate-container {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  padding: 3rem;
+  border: 15px solid var(--navy);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.certificate-container::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 2px solid var(--saffron);
+  pointer-events: none;
+}
+
+.cert-header h1 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--navy);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.cert-header h2 {
+  color: var(--saffron);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.cert-body {
+  margin: 2rem 0;
+}
+
+.cert-body p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.user-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--text-muted);
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0 2rem;
+}
+
+.cert-footer {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cert-seal {
+  width: 100px;
+  height: 100px;
+  background: var(--saffron);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
+  transform: rotate(-15deg);
+}
+
+.cert-signature {
+  text-align: left;
+}
+
+.sig-line {
+  width: 200px;
+  border-top: 1px solid var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.actions-bar {
+  display: flex;
+  gap: 1rem;
+}
+
+@media print {
+  .actions-bar, .sidebar, .mobile-header {
+    display: none !important;
+  }
+  .certificate-page {
+    padding: 0;
+    background: white;
+  }
+  .certificate-container {
+    box-shadow: none;
+    margin: 0;
+  }
+}

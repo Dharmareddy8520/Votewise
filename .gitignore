@@ -1,0 +1,11 @@
+node_modules
+build
+.git
+Dockerfile
+.dockerignore
+.firebase
+.firebaserc
+firebase.json
+firestore.rules
+firestore.indexes.json
+.env

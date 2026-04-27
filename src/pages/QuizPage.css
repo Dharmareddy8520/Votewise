@@ -1,0 +1,47 @@
+.quiz-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quiz-page h2 {
+  margin-bottom: 1.5rem;
+}
+
+.loading-card {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+}
+
+.result-card {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.score-display {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--saffron);
+  margin: 1rem 0;
+}
+
+.text-success {
+  color: var(--success);
+  font-weight: 500;
+}
+
+.text-error {
+  color: var(--error);
+  font-weight: 500;
+}
+
+.finish-btn {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}

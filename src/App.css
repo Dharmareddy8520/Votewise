@@ -1,0 +1,139 @@
+:root {
+  --saffron: #FF6B35;
+  --india-green: #138808;
+  --navy: #000080;
+  --surface: #FFFFFF;
+  --surface-1: #F8F9FA;
+  --surface-hover: #E9ECEF;
+  --text-primary: #0D1117;
+  --text-secondary: #57606A;
+  --text-muted: #8B949E;
+  --border-color: #E1E4E8;
+  --error: #D73A4A;
+  --success: #28A745;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--surface-1);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--saffron);
+  color: white;
+  min-height: 44px;
+}
+
+.btn-primary:hover {
+  background-color: #e55c2b;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background-color: var(--surface);
+  color: var(--navy);
+  border: 1px solid var(--navy);
+  min-height: 44px;
+}
+
+.btn-secondary:hover {
+  background-color: #f0f0ff;
+  text-decoration: none;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--navy);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 2px;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background-color: var(--surface-hover);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--saffron);
+  transition: width 0.3s ease;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  min-height: 44px;
+}
+
+.layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .layout-wrapper {
+    flex-direction: row;
+  }
+}

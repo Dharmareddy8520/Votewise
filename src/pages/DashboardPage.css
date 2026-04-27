@@ -1,0 +1,44 @@
+.dashboard-page {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.welcome-banner {
+  margin-bottom: 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--saffron);
+  margin: 0.5rem 0;
+}
+
+.action-card {
+  background: linear-gradient(to right, var(--surface), #f0f8ff);
+  border-left: 4px solid var(--navy);
+}
+
+.success-banner {
+  background: #e8f5e9;
+  border-left-color: var(--success);
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
