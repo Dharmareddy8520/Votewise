@@ -906,11 +906,6 @@ node test-gemini.js
 
 ## 📚 Additional Resources
 
-### Learning Materials
-- [Election Commission of India](https://www.eci.gov.in) - Official source
-- [NVSP Portal](https://www.nvsp.in) - Voter registration
-- [Gemini API Docs](https://ai.google.dev) - AI model documentation
-
 ### Technologies
 - [React Documentation](https://react.dev)
 - [Firebase Documentation](https://firebase.google.com/docs)
@@ -935,14 +930,6 @@ Please ensure:
 - README is updated if needed
 - Commit messages are descriptive
 
----
-
-## 📄 License
-
-This project is part of the H2A (Help to Access) initiative focused on civic education and voter empowerment in India.
-
----
-
 ## 📞 Support & Contact
 
 For issues, suggestions, or feedback:
@@ -955,7 +942,6 @@ For issues, suggestions, or feedback:
 
 ## 🎉 Acknowledgments
 
-- **Election Commission of India** for official election guidelines
 - **Google** for Firebase, Gemini API, and Translate API
 - **React Community** for excellent documentation and tools
 - **Contributors** who help improve civic education in India
