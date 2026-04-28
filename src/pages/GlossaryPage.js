@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { elaborateGlossaryTerm } from '../services/gemini';
 import { useAppContext } from '../context/AppContext';
+import SpeakButton from '../components/SpeakButton';
 import './GlossaryPage.css';
 
 const GLOSSARY_TERMS = [
@@ -66,7 +67,15 @@ const GlossaryPage = () => {
         <div className="glossary-content">
           {selectedTerm ? (
             <div className="card definition-card">
-              <h2>{selectedTerm}</h2>
+              <div className="glossary-term-row">
+                <h2>{selectedTerm}</h2>
+                {!loading && definition && (
+                  <SpeakButton
+                    text={`${selectedTerm}. ${definition}`}
+                    langCode={profile?.language || 'en'}
+                  />
+                )}
+              </div>
               {loading ? (
                 <div className="loading-skeleton mt-3">
                   <div className="skeleton-line"></div>

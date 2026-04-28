@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { getChatResponse } from '../services/gemini';
 import { useAppContext } from '../context/AppContext';
 import { Send } from 'lucide-react';
+import SpeakButton from '../components/SpeakButton';
 import './ChatPage.css';
 
 const QUICK_CHIPS = [
@@ -56,8 +57,17 @@ const ChatPage = () => {
       <div className="card chat-container">
         <div className="messages-area">
           {messages.map((msg, idx) => (
-            <div key={idx} className={`message-bubble ${msg.role === 'user' ? 'user-msg' : 'sys-msg'}`}>
-              {msg.text}
+            <div key={idx} className={`message-wrap ${msg.role === 'user' ? 'user-wrap' : 'sys-wrap'}`}>
+              <div className={`message-bubble ${msg.role === 'user' ? 'user-msg' : 'sys-msg'}`}>
+                {msg.text}
+              </div>
+              {msg.role !== 'user' && (
+                <SpeakButton
+                  text={msg.text}
+                  langCode={profile?.language || 'en'}
+                  className="speak-btn--compact"
+                />
+              )}
             </div>
           ))}
           {isTyping && (

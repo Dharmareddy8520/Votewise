@@ -1,0 +1,60 @@
+/* ─── SpeakButton ─────────────────────────────────────────────── */
+.speak-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1.5px solid var(--border-color);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 36px;
+  white-space: nowrap;
+}
+
+.speak-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.speak-btn:hover {
+  background: var(--surface-hover);
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+/* Active (speaking) state */
+.speak-btn--active {
+  background: #e8f0ff;
+  border-color: var(--navy);
+  color: var(--navy);
+  animation: speak-pulse 1.4s ease-in-out infinite;
+}
+
+.speak-btn--active svg {
+  color: var(--saffron);
+}
+
+@keyframes speak-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 0, 128, 0.15); }
+  50%       { box-shadow: 0 0 0 6px rgba(0, 0, 128, 0); }
+}
+
+/* Compact variant (for chat bubbles) */
+.speak-btn--compact {
+  padding: 4px 8px;
+  font-size: 0.72rem;
+  min-height: 28px;
+  border-radius: 14px;
+}
+
+.speak-btn--compact svg {
+  width: 13px;
+  height: 13px;
+}

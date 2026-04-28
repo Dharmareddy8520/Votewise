@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ELECTION_TOPICS } from '../services/firestore';
 import { explainTopic } from '../services/gemini';
 import { useAppContext } from '../context/AppContext';
+import SpeakButton from '../components/SpeakButton';
 import './TopicDetailPage.css';
 
 const TopicDetailPage = () => {
@@ -39,7 +40,15 @@ const TopicDetailPage = () => {
       <button className="back-btn" onClick={() => navigate('/learn')}>&larr; Back to Topics</button>
       
       <div className="card content-card">
-        <h1>{topic.title}</h1>
+        <div className="topic-title-row">
+          <h1>{topic.title}</h1>
+          {!loading && explanation && (
+            <SpeakButton
+              text={explanation}
+              langCode={profile?.language || 'en'}
+            />
+          )}
+        </div>
         
         {loading ? (
           <div className="loading-skeleton">

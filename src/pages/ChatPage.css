@@ -21,6 +21,21 @@
   gap: 1rem;
 }
 
+/* Message wrapper – groups bubble + speak button */
+.message-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sys-wrap {
+  align-items: flex-start;
+}
+
+.user-wrap {
+  align-items: flex-end;
+}
+
 .message-bubble {
   max-width: 80%;
   padding: 12px 16px;
