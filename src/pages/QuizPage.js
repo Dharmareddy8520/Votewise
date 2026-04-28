@@ -21,12 +21,13 @@ const QuizPage = () => {
     const fetchQuiz = async () => {
       if (!topic) return;
       setLoading(true);
-      const generated = await generateQuiz(topic.title);
+      const language = profile?.language || 'en';
+      const generated = await generateQuiz(topic.title, language);
       setQuestions(generated);
       setLoading(false);
     };
     fetchQuiz();
-  }, [topic]);
+  }, [topic, profile]);
 
   const handleAnswer = (idx, isCorrect) => {
     setAnswers(prev => ({ ...prev, [idx]: isCorrect }));
@@ -69,6 +70,12 @@ const QuizPage = () => {
              <p className="text-error">You might want to review the topic and try again.</p>
           )}
           <button className="btn-primary mt-4" onClick={() => navigate('/learn')}>Return to Topics</button>
+        </div>
+      ) : questions.length === 0 ? (
+        <div className="card loading-card" style={{ color: '#d32f2f' }}>
+          <h3>⚠️ Generation Failed</h3>
+          <p>Failed to generate quiz. The AI token limit might be exceeded (Error 429) or there is a network issue. Please check your developer console or try again later.</p>
+          <button className="btn-secondary mt-4" onClick={() => window.location.reload()}>Try Again</button>
         </div>
       ) : (
         <div className="quiz-list">

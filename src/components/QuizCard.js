@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
+import PropTypes from 'prop-types';
 import './QuizCard.css';
 
-const QuizCard = ({ questionData, onAnswered }) => {
+const QuizCard = memo(({ questionData, onAnswered }) => {
   const [selectedOpt, setSelectedOpt] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Fallback check to prevent rendering crashes
+  if (!questionData || !questionData.options) {
+    return <div className="card quiz-card">Loading question...</div>;
+  }
 
   // The correct field is an exact character (A, B, C, D) but options have text like 'A) Option'.
   // We extract the prefix logic nicely.
@@ -70,6 +76,16 @@ const QuizCard = ({ questionData, onAnswered }) => {
       )}
     </div>
   );
+});
+
+QuizCard.propTypes = {
+  questionData: PropTypes.shape({
+    question: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    correct: PropTypes.string.isRequired,
+    explanation: PropTypes.string.isRequired,
+  }).isRequired,
+  onAnswered: PropTypes.func.isRequired,
 };
 
 export default QuizCard;

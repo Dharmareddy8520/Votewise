@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ELECTION_TOPICS } from '../services/firestore';
 import { explainTopic } from '../services/gemini';
-import { translateText } from '../services/translate';
 import { useAppContext } from '../context/AppContext';
 import './TopicDetailPage.css';
 
@@ -15,8 +14,6 @@ const TopicDetailPage = () => {
   
   const [explanation, setExplanation] = useState('');
   const [loading, setLoading] = useState(false);
-  const [translatedState, setTranslatedState] = useState('');
-  const [isTranslating, setIsTranslating] = useState(false);
 
   // Fetch explanation when component mounts or topic changes
   useEffect(() => {
@@ -24,16 +21,11 @@ const TopicDetailPage = () => {
       if (!topic || !profile) return;
       setLoading(true);
       const level = profile.knowledgeLevel || 'beginner';
-      const text = await explainTopic(topic.title, level);
-      setExplanation(text);
-      setTranslatedState(text);
+      const language = profile.language || 'en';
       
-      if (profile.language && profile.language !== 'en') {
-        setIsTranslating(true);
-        const translated = await translateText(text, profile.language);
-        setTranslatedState(translated);
-        setIsTranslating(false);
-      }
+      // AI explains directly in the user's preferred language natively.
+      const text = await explainTopic(topic.title, level, language);
+      setExplanation(text);
       
       setLoading(false);
     };
@@ -58,11 +50,7 @@ const TopicDetailPage = () => {
           </div>
         ) : (
           <div className="explanation-content">
-            {isTranslating ? (
-              <p className="translating-text">Translating to your preferred language...</p>
-            ) : (
-              <p className="gemini-text">{translatedState}</p>
-            )}
+              <p className="gemini-text">{explanation}</p>
           </div>
         )}
       </div>
@@ -71,7 +59,7 @@ const TopicDetailPage = () => {
         <button 
           className="btn-primary" 
           onClick={() => navigate(`/quiz/${id}`)}
-          disabled={loading || isTranslating}
+          disabled={loading}
         >
           Take Topic Quiz
         </button>
